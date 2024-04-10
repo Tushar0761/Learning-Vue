@@ -1,0 +1,48 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div id="app" class="p-3">
+            <h1 v-text="MyApp"></h1>
+            <div class="border p-3 m-2 border-dark">
+                <h2 class="border-bottom">Direct Calculating Values</h2>
+                <input type="text" v-model="user1" placeholder="username" />
+                <span>({{30 -user1.length}} left)</span>
+                <p>username should be less than 30 char</p>
+            </div>
+            <div class="border p-3 m-2 border-dark">
+                <h2 class="border-bottom">With computed properties</h2>
+                <input type="text" v-model="user2" placeholder="username" />
+                <span>({{characterLeft}} left)</span>
+                <p>username should be less than 30 char</p>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+            const app = {
+                data() {
+                    return {
+                        user1: "",
+                        user2: "",
+                    };
+                },
+                computed: {
+                    characterLeft() {
+                        return 30 - this.user2.length;
+                    },
+                },
+            };
+            Vue.createApp(app).mount("#app");
+        </script>
+    </body>
+</html>
