@@ -1,0 +1,68 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Inline</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div id="app" class="p-3">
+            <h1>{{title}}</h1>
+            <div style="border: 1px solid black; padding: 10px">
+                <span>{{count}}</span>
+                <button
+                    @click="inc()"
+                    class="btn mx-5"
+                    :class="{'btn-primary':primary,'btn-danger':!primary} "
+                >
+                    Add
+                </button>
+            </div>
+
+            <div class="border rounded m-1 p-1">
+                <button @click="inc()" :class="[myClasses,padding]">add</button>
+            </div>
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+            const app = {
+                data() {
+                    return {
+                        title: "Class styling.",
+                        count: 10,
+                        p: true,
+                        myClasses: {
+                            btn: true,
+                            "btn-danger": true,
+                        },
+                    };
+                },
+                methods: {
+                    inc() {
+                        if (this.count >= 20) {
+                            this.myClasses["btn-danger"] = false;
+                            this.myClasses["btn-primary"] = true;
+                            console.log(this.count);
+                        }
+                        this.count++;
+                    },
+                },
+                computed: {
+                    primary() {
+                        return this.count <= 20;
+                    },
+                    padding() {
+                        return { "px-5": true };
+                    },
+                },
+            };
+
+            Vue.createApp(app).mount("#app");
+        </script>
+    </body>
+</html>

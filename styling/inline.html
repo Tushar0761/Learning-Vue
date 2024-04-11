@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Inline</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{title}}</h1>
+            <div style="border: 1px solid black; padding: 10px">
+                <p :style="{color:'red',fontSize:mySize+'rem',}">Hii</p>
+                <p :style="pStyle">Hii</p>
+                <p :style="[pStyle,lineStyle]">Hii</p>
+            </div>
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+            const app = {
+                data() {
+                    return {
+                        title: "Inline styling.",
+                        mySize: 1.6,
+                        pStyle: { color: "blue", borderTop: "1px solid black" },
+                        lineStyle: { padding: "10px 50px", background: "gray" },
+                    };
+                },
+            };
+
+            Vue.createApp(app).mount("#app");
+        </script>
+    </body>
+</html>
