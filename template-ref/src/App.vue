@@ -1,9 +1,9 @@
 <template>
     <div class="text-xl text-center">
         <h1 class="text-3xl">{{ title }}</h1>
-        <div class="border rounded p-2 m0">
+        <div class="border rounded p-2 m-2 my-12 py-32">
             <input type="text" ref="name" class="border p-1 rounded-lg" />
-            <button class="px-3 m-1 bg-blue-100 rounded" @click="handler()">
+            <button class="px-3 m-1 bg-slate-100 rounded" @click="handler()">
                 Click
             </button>
             <button class="px-3 m-1 bg-blue-100 rounded" @click="style()">
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import "./assets/style.css";
 export default {
     name: "App",
     data() {
