@@ -1,7 +1,7 @@
 <template>
     <div class="text-xl text-center">
         <h1 class="text-3xl">{{ title }}</h1>
-        <div class="border rounded p-2 m-2 my-12 py-32">
+        <div class="border rounded p-2 m-2 pt-10">
             <input type="text" ref="name" class="border p-1 rounded-lg" />
             <button class="px-3 m-1 bg-slate-100 rounded" @click="handler()">
                 Click
@@ -33,15 +33,10 @@ export default {
         handler() {
             let input = this.$refs.output;
 
-            input.innerHTML += "<br>";
-            console.log(input.innerHTML);
+            input.innerHTML += this.$refs.name.value + "<hr/>";
 
-            input.innerHTML += this.$refs.name.value;
-            console.log(input.innerHTML);
-            input.innerHTML += "<br>";
-            console.log(input.innerHTML);
-
-            input.classList.add("py-5");
+            this.$refs.name.value = "";
+            this.$refs.name.focus();
         },
     },
 };
