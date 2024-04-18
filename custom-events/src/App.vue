@@ -21,7 +21,7 @@
                     </p></CardComp
                 >
                 <h1 class="bg-blue-500 px-2 py-1 rounded">Helo</h1>
-                <button class="">click me</button>
+                <template v-slot:button>click me</template>
             </CardComp>
             <CardComp>
                 <p>This is my msg to card</p>
